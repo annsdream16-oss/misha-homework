@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашнее задание - 4 класс</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 850px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+            font-size: 1.8em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .task {
+            background-color: #fafafa;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .task h2 {
+            color: #4a90e2;
+            margin-top: 0;
+            font-size: 1.3em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .task p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #555;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 1.05em;
+        }
+
+        input[type="text"] {
+            padding: 8px 12px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Nunito', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+            width: 140px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4a90e2;
+        }
+
+        input.short-input { width: 60px; }
+        
+        input.correct {
+            border-color: #2ecc71;
+            background-color: #e9f7ef;
+        }
+
+        input.incorrect {
+            border-color: #e74c3c;
+            background-color: #fdedec;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover { background-color: #357abd; }
+        button:active { transform: scale(0.98); }
+
+        .btn-check {
+            background-color: #ff9f43;
+            width: 100%;
+            font-size: 1.1em;
+            padding: 12px;
+        }
+        
+        .btn-check:hover { background-color: #ee8e32; }
+
+        .feedback {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .feedback.success { color: #2ecc71; }
+        .feedback.error { color: #e74c3c; }
+
+        /* Стили для задания 5 */
+        .character-card {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid #ff9800;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .hint {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 15px;
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 600px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Интерактивное домашнее задание</h1>
+    <div class="subtitle">Глагол to be • Дни недели • Страны и люди</div>
+
+    <!-- Task 1: Days of the Week -->
+    <div class="task">
+        <h2>1. Дни недели (Days of the Week)</h2>
+        <p>Прочитай описание и напиши правильный день недели на английском языке.</p>
+        <div class="input-group">
+            <span>1. Первый рабочий день недели: </span> <input type="text" id="day1" placeholder="Например: Monday">
+        </div>
+        <div class="input-group">
+            <span>2. Второй день недели (после понедельника): </span> <input type="text" id="day2" placeholder="...">
+        </div>
+        <div class="input-group">
+            <span>3. Середина недели: </span> <input type="text" id="day3" placeholder="...">
+        </div>
+        <div class="input-group">
+            <span>4. Четвертый день недели (перед пятницей): </span> <input type="text" id="day4" placeholder="...">
+        </div>
+        <div class="input-group">
+            <span>5. Пятый день недели (последний рабочий): </span> <input type="text" id="day5" placeholder="...">
+        </div>
+        <div class="input-group">
+            <span>6. Первый день выходных: </span> <input type="text" id="day6" placeholder="...">
+        </div>
+        <div class="input-group">
+            <span>7. Последний день недели: </span> <input type="text" id="day7" placeholder="...">
+        </div>
+        <button class="btn-check" onclick="checkDays()">Проверить ответы</button>
+        <div class="feedback" id="feedback-days"></div>
+    </div>
+
+    <!-- Task 2: Nationalities -->
+    <div class="task">
+        <h2>2. Страны и национальности (Countries and Nationalities)</h2>
+        <p>Напиши правильную национальность для каждой страны.</p>
+        <div class="grid-2">
+            <div class="input-group"><span>1. England 🇬🇧 — </span><input type="text" id="nat1" placeholder="Eng..."></div>
+            <div class="input-group"><span>2. Turkey 🇹🇷 — </span><input type="text" id="nat2" placeholder="Tur..."></div>
+            <div class="input-group"><span>3. France 🇫🇷 — </span><input type="text" id="nat3" placeholder="Fre..."></div>
+            <div class="input-group"><span>4. Italy 🇮🇹 — </span><input type="text" id="nat4" placeholder="Ita..."></div>
+            <div class="input-group"><span>5. Argentina 🇦🇷 — </span><input type="text" id="nat5" placeholder="Arg..."></div>
+            <div class="input-group"><span>6. China 🇨🇳 — </span><input type="text" id="nat6" placeholder="Chi..."></div>
+            <div class="input-group"><span>7. Spain 🇪🇸 — </span><input type="text" id="nat7" placeholder="Spa..."></div>
+            <div class="input-group"><span>8. Poland 🇵🇱 — </span><input type="text" id="nat8" placeholder="Pol..."></div>
+            <div class="input-group"><span>9. The UK 🇬🇧 — </span><input type="text" id="nat9" placeholder="Bri..."></div>
+            <div class="input-group"><span>10. Russia 🇷🇺 — </span><input type="text" id="nat10" placeholder="Rus..."></div>
+            <div class="input-group"><span>11. The USA 🇺🇸 — </span><input type="text" id="nat11" placeholder="Ame..."></div>
+        </div>
+        <button class="btn-check" onclick="checkNationalities()">Проверить ответы</button>
+        <div class="feedback" id="feedback-nat"></div>
+    </div>
+
+    <!-- Task 3: Verb to be -->
+    <div class="task">
+        <h2>3. Глагол "to be" (am / is / are / isn't / aren't)</h2>
+        <p>Вставь правильную форму глагола в пропуски.</p>
+        <div class="grid-2">
+            <div class="input-group"><span>1. I </span> <input type="text" id="be1" class="short-input"> <span> from Russia.</span></div>
+            <div class="input-group"><span>2. She </span> <input type="text" id="be2" class="short-input"> <span> 11. She is 10. (отрицание)</span></div>
+            <div class="input-group"><span>3. </span> <input type="text" id="be3" class="short-input"> <span> you from Wales?</span></div>
+            <div class="input-group"><span>4. Yes, I </span> <input type="text" id="be4" class="short-input"> <span>.</span></div>
+            <div class="input-group"><span>5. They </span> <input type="text" id="be5" class="short-input"> <span> brothers. (отрицание)</span></div>
+            <div class="input-group"><span>6. He </span> <input type="text" id="be6" class="short-input"> <span> ten years old.</span></div>
+            <div class="input-group"><span>7. We </span> <input type="text" id="be7" class="short-input"> <span> friends.</span></div>
+            <div class="input-group"><span>8. </span> <input type="text" id="be8" class="short-input"> <span> he twelve?</span></div>
+            <div class="input-group"><span>9. No, he </span> <input type="text" id="be9" class="short-input"> <span>.</span></div>
+            <div class="input-group"><span>10. You </span> <input type="text" id="be10" class="short-input"> <span> Spanish.</span></div>
+            <div class="input-group"><span>11. </span> <input type="text" id="be11" class="short-input"> <span> they brothers?</span></div>
+            <div class="input-group"><span>12. No, they </span> <input type="text" id="be12" class="short-input"> <span>.</span></div>
+        </div>
+        <button class="btn-check" onclick="checkToBe()">Проверить ответы</button>
+        <div class="feedback" id="feedback-tobe"></div>
+    </div>
+
+    <!-- Task 4: He/She and His/Her -->
+    <div class="task">
+        <h2>4. Местоимения He/She и His/Her</h2>
+        <p>Вставь правильное слово: He, She, His или Her.</p>
+        <div class="grid-2">
+            <div class="input-group"><span>1. This is Amy. </span> <input type="text" id="hh1" class="short-input"> <span> name is Amy.</span></div>
+            <div class="input-group"><span>2. This is John. </span> <input type="text" id="hh2" class="short-input"> <span> is from Italy.</span></div>
+            <div class="input-group"><span>3. Look at Lucy. </span> <input type="text" id="hh3" class="short-input"> <span> age is 20.</span></div>
+            <div class="input-group"><span>4. This is Fred. </span> <input type="text" id="hh4" class="short-input"> <span> name is Fred.</span></div>
+            <div class="input-group"><span>5. That is Anna. </span> <input type="text" id="hh5" class="short-input"> <span> is from Spain.</span></div>
+            <div class="input-group"><span>6. This is Max. </span> <input type="text" id="hh6" class="short-input"> <span> age is 28.</span></div>
+            <div class="input-group"><span>7. This is Jane. </span> <input type="text" id="hh7" class="short-input"> <span> is 25 years old.</span></div>
+            <div class="input-group"><span>8. Look at John. </span> <input type="text" id="hh8" class="short-input"> <span> name is John.</span></div>
+            <div class="input-group"><span>9. This is my sister. </span> <input type="text" id="hh9" class="short-input"> <span> is 10 years old.</span></div>
+            <div class="input-group"><span>10. This is my brother. </span> <input type="text" id="hh10" class="short-input"> <span> age is 12.</span></div>
+            <div class="input-group"><span>11. This is Lucy. </span> <input type="text" id="hh11" class="short-input"> <span> is from France.</span></div>
+            <div class="input-group"><span>12. This is my dad. </span> <input type="text" id="hh12" class="short-input"> <span> name is David.</span></div>
+        </div>
+        <button class="btn-check" onclick="checkHisHer()">Проверить ответы</button>
+        <div class="feedback" id="feedback-hisher"></div>
+    </div>
+
+    <!-- Task 5: Presenting People -->
+    <div class="task">
+        <h2>5. Рассказ о человеке (Present these people)</h2>
+        <div class="hint">
+            Прочитай информацию и напиши небольшой рассказ о человеке по образцу:<br>
+            <i>"She is Amy. She is 23 years old. She is Spanish but now she is in France on business. Amy is happy."</i>
+        </div>
+        
+        <div class="character-card">
+            <strong>Персонаж: Lucy (Люси)</strong><br>
+            <ul>
+                <li>Местоимение: she</li>
+                <li>Возраст: 20</li>
+                <li>Национальность: French (француженка)</li>
+                <li>Местоположение: Spain (holiday) - Испания (в отпуске)</li>
+                <li>Настроение: great (отличное)</li>
+            </ul>
+            <textarea id="text5" placeholder="Напиши свой рассказ о Люси здесь на английском языке..."></textarea>
+            <br><br>
+            <button class="btn-check" onclick="checkText()">Проверить текст</button>
+            <div class="feedback" id="feedback-text"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Helper function for feedback
+    function showFeedback(elementId, correct, total) {
+        const feedbackEl = document.getElementById(elementId);
+        if (correct === total) {
+            feedbackEl.textContent = `Отлично! Все ответы верные (${correct} из ${total})! 🎉`;
+            feedbackEl.className = "feedback success";
+        } else {
+            feedbackEl.textContent = `Правильных ответов: ${correct} из ${total}. Проверь красные поля и попробуй еще раз!`;
+            feedbackEl.className = "feedback error";
+        }
+    }
+
+    // Task 1 Logic
+    function checkDays() {
+        const answers = {
+            day1: "monday", day2: "tuesday", day3: "wednesday", 
+            day4: "thursday", day5: "friday", day6: "saturday", day7: "sunday"
+        };
+        let correctCount = 0;
+        for (let id in answers) {
+            let input = document.getElementById(id);
+            if (input.value.trim().toLowerCase() === answers[id]) {
+                input.classList.add('correct'); input.classList.remove('incorrect');
+                correctCount++;
+            } else {
+                input.classList.add('incorrect'); input.classList.remove('correct');
+            }
+        }
+        showFeedback('feedback-days', correctCount, Object.keys(answers).length);
+    }
+
+    // Task 2 Logic
+    function checkNationalities() {
+        const answers = {
+            nat1: "english", nat2: "turkish", nat3: "french", 
+            nat4: "italian", nat5: "argentinian", nat6: "chinese",
+            nat7: "spanish", nat8: "polish", nat9: "british",
+            nat10: "russian", nat11: "american"
+        };
+        let correctCount = 0;
+        for (let id in answers) {
+            let input = document.getElementById(id);
+            if (input.value.trim().toLowerCase() === answers[id]) {
+                input.classList.add('correct'); input.classList.remove('incorrect');
+                correctCount++;
+            } else {
+                input.classList.add('incorrect'); input.classList.remove('correct');
+            }
+        }
+        showFeedback('feedback-nat', correctCount, Object.keys(answers).length);
+    }
+
+    // Task 3 Logic
+    function checkToBe() {
+        const answers = {
+            be1: ["am"], be2: ["isn't", "is not"], be3: ["are"], be4: ["am"],
+            be5: ["aren't", "are not"], be6: ["is"], be7: ["are"], be8: ["is"],
+            be9: ["isn't", "is not"], be10: ["are"], be11: ["are"], be12: ["aren't", "are not"]
+        };
+        let correctCount = 0;
+        for (let id in answers) {
+            let input = document.getElementById(id);
+            if (answers[id].includes(input.value.trim().toLowerCase())) {
+                input.classList.add('correct'); input.classList.remove('incorrect');
+                correctCount++;
+            } else {
+                input.classList.add('incorrect'); input.classList.remove('correct');
+            }
+        }
+        showFeedback('feedback-tobe', correctCount, Object.keys(answers).length);
+    }
+
+    // Task 4 Logic
+    function checkHisHer() {
+        const answers = {
+            hh1: "her", hh2: "he", hh3: "her", hh4: "his",
+            hh5: "she", hh6: "his", hh7: "she", hh8: "his",
+            hh9: "she", hh10: "his", hh11: "she", hh12: "his"
+        };
+        let correctCount = 0;
+        for (let id in answers) {
+            let input = document.getElementById(id);
+            if (input.value.trim().toLowerCase() === answers[id]) {
+                input.classList.add('correct'); input.classList.remove('incorrect');
+                correctCount++;
+            } else {
+                input.classList.add('incorrect'); input.classList.remove('correct');
+            }
+        }
+        showFeedback('feedback-hisher', correctCount, Object.keys(answers).length);
+    }
+
+    // Task 5 Logic (Semi-controlled)
+    function checkText() {
+        const text = document.getElementById('text5').value.toLowerCase();
+        const feedback = document.getElementById('feedback-text');
+        
+        // Ключевые слова для проверки
+        const keywords = ["lucy", "is", "20", "french", "spain", "great"];
+        let foundWords = 0;
+
+        keywords.forEach(word => {
+            if (text.includes(word)) {
+                foundWords++;
+            }
+        });
+
+        if (foundWords >= 5) {
+            feedback.textContent = "Отлично! Ты очень хорошо описал(а) Люси! 🌟";
+            feedback.className = "feedback success";
+        } else if (foundWords >= 3) {
+            feedback.textContent = "Хорошая попытка! Но ты забыл(а) упомянуть некоторые детали (возраст, страну или настроение). Попробуй еще раз!";
+            feedback.className = "feedback error";
+        } else {
+            feedback.textContent = "Пожалуйста, напиши полный рассказ о Люси, используя информацию из карточки.";
+            feedback.className = "feedback error";
+        }
+    }
+</script>
+
+</body>
+</html>
